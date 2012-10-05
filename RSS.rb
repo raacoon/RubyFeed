@@ -28,9 +28,10 @@
 require 'rubygems'
 require 'builder'
 
+require 'Feed.rb'
 require 'Entry.rb'
 
-class RSS
+class RSS < Feed
 	def initialize(hash)
 		@title 			= hash[:title]
 		@link 			= hash[:link]
@@ -44,13 +45,6 @@ class RSS
 		@image_link 	= hash[:image_link]
 
 		@entries 		= []
-	end
-
-	def addEntry(entry)
-		@entries[@entries.length] = entry
-	end
-	def getEntries
-		return @entries
 	end
 
 	def getXML

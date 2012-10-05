@@ -28,9 +28,10 @@
 require 'rubygems'
 require 'builder'
 
+require 'Feed.rb'
 require 'Entry.rb'
 
-class Atom
+class Atom < Feed
 	def initialize(hash)
 		@author 	= hash[:author]
 		@title 		= hash[:title]
@@ -38,12 +39,6 @@ class Atom
 		@updated 	= hash[:updated]
 
 		@entries 	= []
-	end
-	def addEntry(entry)
-		@entries[@entries.length] = entry
-	end
-	def getEntries
-		return @entries
 	end
 
 	def getXML
